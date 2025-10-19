@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MovieScoutr — Discover. Watch. Chill.</title>
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="ms-header">
+    <div class="ms-container header-row">
+      <a class="brand" href="#"><span class="logo-ico">🎬</span><span>MovieScoutr</span></a>
+      <nav class="header-actions">
+        <button id="openSearch" class="pill"><i class="fas fa-search"></i> Search</button>
+        <button id="gotoWatchlist" class="pill"><i class="fas fa-heart"></i> Watchlist <span id="watchBadge">0</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="ms-container hero-content">
+        <h1 class="hero-title">Discover. Watch. Chill.</h1>
+        <p class="hero-sub">Search, explore and build your movie watchlist — powered by OMDB.</p>
+
+        <div class="search-large" id="searchBar">
+          <i class="fas fa-search"></i>
+          <input id="searchInput" placeholder="Find your next favorite movie..." aria-label="Search movies" />
+          <button id="searchBtn" class="circle"><i class="fas fa-arrow-right"></i></button>
+        </div>
+
+        <div class="filters-row">
+          <label>Type
+            <select id="typeFilter"><option value="">All</option><option value="movie">Movie</option><option value="series">Series</option></select>
+          </label>
+          <label>Year
+            <select id="yearFilter"><option value="">All Years</option></select>
+          </label>
+          <button id="resetFilters" class="btn-ghost">⟲ Reset</button>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="ms-container results-section">
+      <div id="statusArea" class="status">Search to begin</div>
+
+      <div id="moviesGrid" class="movies-grid"></div>
+
+      <div id="pagination" class="pagination hide">
+        <button id="prevBtn" class="page-btn" disabled>Previous</button>
+        <span id="pageInfo">Page 1</span>
+        <button id="nextBtn" class="page-btn">Next</button>
+      </div>
+    </section>
+
+    
+    <section class="ms-container watchlist-section hide" id="watchlistSection">
+      <div class="section-header">
+        <h2><i class="fas fa-heart"></i> My Watchlist</h2>
+        <button id="clearWatchlist" class="btn-ghost">Clear All</button>
+      </div>
+      <div id="watchlistGrid" class="movies-grid"></div>
+      <div id="emptyWatchlist" class="empty">Your watchlist is empty — add something</div>
+    </section>
+  </main>
+
+  
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-bg" id="modalBg"></div>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <button id="modalClose" class="modal-close"><i class="fas fa-times"></i></button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+ <footer class="footer">
+    <p>🎬 Built by <strong>Lakshin Amin</strong> | Powered by <a href="https://www.omdbapi.com/" target="_blank">OMDB API</a></p>
+  </footer>
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+  </body>
+  </html>
